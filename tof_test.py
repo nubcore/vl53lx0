@@ -1,13 +1,13 @@
 import time
-from machine import Pin, I2C
+from machine import Pin, SoftI2C
 from vl53l0x import VL53L0X
 
 print("setting up i2c")
-sda = Pin(0)
-scl = Pin(1)
+sda = Pin(12)
+scl = Pin(13)
 id = 0
 
-i2c = I2C(id=id, sda=sda, scl=scl)
+i2c = SoftI2C(sda=sda, scl=scl)
 
 print(i2c.scan())
 
